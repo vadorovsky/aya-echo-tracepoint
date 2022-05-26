@@ -44,10 +44,8 @@ fn try_echo_trace_open(ctx: TracePointContext) -> Result<c_long, c_long> {
         core::str::from_utf8_unchecked(&buf.buf[..len])
     };
 
-    if filename.len() < 512 {
-        // log the filename
-        info!(&ctx, "open {}", filename);
-    }
+    // log the filename
+    info!(&ctx, "open {}", filename);
 
     Ok(0)
 }
