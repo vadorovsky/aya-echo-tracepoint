@@ -45,12 +45,12 @@ fn try_echo_trace_open(ctx: TracePointContext) -> Result<c_long, c_long> {
     let filename = unsafe {
         core::str::from_utf8_unchecked(bpf_probe_read_user_str_bytes(
             filename_addr as *const u8,
-            &mut buf.buf,
+            &mut buf.buf[..LOG_BUF_CAPACITY],
         )?)
     };
 
     // log the filename
-    info!(&ctx, "open {}", filename);
+    // info!(&ctx, "open {}", filename);
 
     Ok(0)
 }
