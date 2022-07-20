@@ -4,9 +4,12 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-aya-bpf = { git = "https://github.com/aya-rs/aya", branch = "main" }
+aya-bpf = { git = "https://github.com/vadorovsky/aya", branch = "fix-str-helpers-verifier" }
 aya-log-ebpf = { git = "https://github.com/aya-rs/aya-log", branch="main" }
 echo-common = { path = "../echo-common" }
+
+[patch.'https://github.com/aya-rs/aya']
+aya-bpf = { git = "https://github.com/vadorovsky/aya", branch = "fix-str-helpers-verifier" }
 
 [[bin]]
 name = "echo"
